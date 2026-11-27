@@ -1,6 +1,7 @@
 # The Recurrence Threshold for Real-Power Rademacher Walks
 
 [![Repository verification](https://github.com/DannyExperiments/rademacher-power-threshold/actions/workflows/verify.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/rademacher-power-threshold/actions/workflows/verify.yml) [![PDF build](https://github.com/DannyExperiments/rademacher-power-threshold/actions/workflows/pdf.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/rademacher-power-threshold/actions/workflows/pdf.yml) [![Replay verification](https://github.com/DannyExperiments/rademacher-power-threshold/actions/workflows/replay.yml/badge.svg?branch=main)](https://github.com/DannyExperiments/rademacher-power-threshold/actions/workflows/replay.yml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24588799.svg)](https://doi.org/10.5281/zenodo.24588799)
 
 **Q1600.** Bhattacharya, Crane and Johnston ask on page 6 how the Rademacher walk with exact real steps j^α behaves for 0 < α ≤ 1/2. [Problem source](https://arxiv.org/pdf/2510.24568v2#page=6)
 
