@@ -33,3 +33,4 @@
 - `visualization/index.html`
 - `visualization/visit-and-cluster-scales-explorer.zip`
 - `visualization/visit-and-cluster-scales.gif`
+- `visualization/version-doi.svg`
