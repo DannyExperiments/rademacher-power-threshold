@@ -1,0 +1,22 @@
+cff-version: "1.2.0"
+message: "Cite this version of the research release."
+type: software
+title: "The Recurrence Threshold for Real-Power Rademacher Walks"
+authors:
+  - name: "DannyExperiments"
+version: "1.0.0"
+date-released: 2026-11-27
+doi: "10.5281/zenodo.24588799"
+url: "https://doi.org/10.5281/zenodo.24588799"
+repository-code: "https://github.com/DannyExperiments/rademacher-power-threshold"
+keywords:
+  - "Rademacher random walk"
+  - "recurrence"
+  - "transience"
+  - "power weights"
+  - "small-ball probability"
+  - "Fourier anti-concentration"
+  - "local limit theorem"
+  - "Paley–Zygmund inequality"
+  - "stopping time"
+  - "balanced signs"

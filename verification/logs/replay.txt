@@ -1,0 +1,1 @@
+PASS: 49 exact balanced-sign variance fixtures, 40 rational exponent fixtures, and the critical equality.

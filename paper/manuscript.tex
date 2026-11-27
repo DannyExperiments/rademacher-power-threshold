@@ -1,0 +1,88 @@
+\documentclass[a4paper,11pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{2em}
+\renewcommand{\bibliofont}{\normalsize\raggedright}
+\DeclareMathSizes{9}{9}{8}{8}
+\DeclareMathSizes{10.95}{10.95}{8}{8}
+\date{}
+\newtheorem{thm}{Theorem}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\sinc}{sinc}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\EE}{\mathbb E}
+\title{The Recurrence Threshold for Real-Power Rademacher Walks}
+\begin{document}
+\begin{abstract}
+Let $X_n$ be the sum of independent symmetric signs with weights $j^\alpha$ for $1\le j\le n$, where $0<\alpha\le1/2$. Every nonempty open interval is visited infinitely often almost surely for $\alpha\le1/4$, and $|X_n|\to\infty$ almost surely for $\alpha>1/4$. A short-block Fourier bound controls joint visits on the recurrent side. On the transient side a first visit induces a cluster of expected nearby visits, giving a summable bound on dyadic hitting probabilities.
+\end{abstract}
+\maketitle
+\section{Statement and context}
+Bhattacharya, Crane and Johnston~\cite[p.~6]{bcj} ask for the behavior of the Rademacher walk with the exact real weights $j^\alpha$ when $0<\alpha\le1/2$. Their Theorem~13 gives a transience versus topological recurrence dichotomy for these weights. Their Theorem~1 establishes transience for exponent $\alpha>1/2$ under a more general growth assumption. Volkov~\cite{volkov} gives a local-limit proof in the super-square-root range with a smoothness hypothesis. The rounded power sequence studied by Bhattacharya and Volkov~\cite{bv} has different local arithmetic.
+\begin{thm}
+For independent symmetric signs $\epsilon_j$, let $X_n=\sum_{j=1}^n\epsilon_j j^\alpha$, where $0<\alpha\le1/2$. If $\alpha\le1/4$, almost surely every nonempty open interval is visited infinitely often. If $\alpha>1/4$, almost surely $|X_n|\to\infty$.
+\end{thm}
+
+\section{Block estimates}
+Fix $\alpha$ and a radius $R>0$. All constants may depend on these parameters. For $1\le\ell\le m$ and $Y=X_{m+\ell}-X_m$ we will show, uniformly in $y$,
+\begin{equation}\label{eq:block}
+\PP(|Y-y|\le R)\le C\left[m^{-\alpha}\ell^{-1/2}
+  +\min(\ell^{-1/2},m^{1-\alpha}\ell^{-2})\right].
+\end{equation}
+A constant multiple of $\sinc^2(bx)$, with $\sinc(x)=\sin(x)/x$ and $0<bR\le1$, majorizes the indicator of $[-R,R]$. Its bounded Fourier transform is supported in $[-2b,2b]$, in the convention $\widehat f(t)=\int f(x)e^{-itx}\,dx$. Fourier inversion bounds the concentration by a constant times the integral of $\prod_{j=1}^\ell|\cos(t(m+j)^\alpha)|$ over $|t|\le T=2b$. The case $\ell=1$ is immediate.
+
+For $\ell\ge2$, let $p_j=|t|(m+j)^\alpha$, $S=p_\ell-p_1$, $A=((m+1)^\alpha+(m+\ell)^\alpha)/2$ and $d(u)=\dist(u,\pi\mathbb Z)$. Successive phase gaps are comparable to $|t|m^{\alpha-1}$, so $S\asymp |t|\ell m^{\alpha-1}$. If $S\le1$ then
+\begin{equation}\label{eq:phase}
+\sum_{j=1}^\ell d(p_j)^2\ge c\ell\bigl(d(|t|A)^2+S^2\bigr).
+\end{equation}
+If $d(|t|A)\ge S$, each distance is at least half of $d(|t|A)$. Otherwise all phases lie at distance at most $3S/2<\pi/2$ from the same lattice point. The sum of squared distances is then at least the sum of squared deviations from the mean. The latter equals $1/\ell$ times the sum of squared pairwise gaps over unordered pairs. Gap comparability gives a positive fraction of pairs separated by at least a fixed multiple of $S$, using the first and last quarters of the indices for $\ell\ge4$ and the endpoints for $\ell=2,3$. This proves~\eqref{eq:phase}.
+
+For $S>1$, an interval of length $S$ meets at most $S/\pi+2$ of the neighborhoods of radius $1/16$ about $\pi\mathbb Z$. Their total intersection length is at most $(S/\pi+2)/8<S/2$. Hence $\int_{p_1}^{p_\ell}d(u)^2\,du\ge cS$. With $h$ the maximum gap, Lipschitz continuity of $d^2$ bounds this integral above by $h\sum_jd(p_j)^2+O(hS)$. Uniformly on $|t|\le T$, $h=O(m^{\alpha-1})\to0$. Thus $\sum_jd(p_j)^2\ge cS/h\ge c'\ell$ for large $m$.
+
+Now $|\cos u|\le\exp(-c d(u)^2)$. The portion $S>1$ contributes $O(e^{-c\ell})$, absorbed by~\eqref{eq:block}, since the minimum in that bound is at least $\ell^{-1-\alpha}$. For $S\le1$ the integrand is bounded by
+\[
+ \exp\bigl(-c\ell d(tA)^2-ct^2\ell^3m^{2\alpha-2}\bigr).
+\]
+In each cell $|tA-k\pi|\le\pi/2$, the integral of the first factor is $O(m^{-\alpha}\ell^{-1/2})$. For $k\ne0$ the second factor is at most $e^{-ck^2\ell^3/m^2}$. There are $O(m^\alpha)$ such cells on the frequency interval, and the sum of their Gaussian factors is $O(m/\ell^{3/2})$, by integration over the positive half-line. Adding the zero cell yields~\eqref{eq:block}. Constants can absorb the finitely many small $m$.
+
+\section{One-time estimates and recurrence}
+On the last $\lfloor n/2\rfloor$ factors, the phase range is comparable to $|t|n^\alpha$. The same phase estimates therefore imply
+\begin{equation}\label{eq:decay}
+\prod_{j=n-\lfloor n/2\rfloor+1}^n |\cos(tj^\alpha)|
+\le \exp[-cn\min(1,t^2n^{2\alpha})]
+\qquad (|t|\le T).
+\end{equation}
+Fourier majorization gives $\PP(X_n\in I)=O(n^{-\alpha-1/2})$ for any interval $I$ of fixed length, uniformly in its center. The same bound applies after conditioning on any fixed prefix of length at most $\lceil n/2\rceil$.
+
+For the lower bound, fix $I=[y-r,y+r]$, $r>0$, and take
+\[
+ F_I(x)=\bigl(1-(x-y)^2/r^2\bigr)\sinc^4(B(x-y)).
+\]
+It is an integrable minorant with positive integral for large $B$: the zeroth and second moments of $\sinc^4$ are finite, and the quadratic correction after rescaling has a factor $B^{-2}$. The Fourier transform is continuous, bounded and supported in $[-4B,4B]$ by convolution and the differentiation identity (the latter applies in distributions as well). Condition on any fixed initial $M$ signs. For $t=w n^{-\alpha-1/2}$, the conditional characteristic function tends to $\exp[-w^2/(2(2\alpha+1))]$ by the expansion of $\log\cos$ and the power sum asymptotic. The deterministic initial shift tends to $1$ in the characteristic function, and removing finitely many factors leaves the variance asymptotic unchanged. After the frequency rescaling,~\eqref{eq:decay} gives Gaussian domination on $|w|\le\sqrt n$ and $O(e^{-cn})$ up to $|w|\le4B n^{\alpha+1/2}$. Thus $n^{\alpha+1/2}\EE(F_I(X_n)\mid\epsilon_1,\ldots,\epsilon_M)$ converges to the positive number
+\[
+ \frac{\widehat F_I(0)}{2\pi}\int_{\mathbb R}
+ e^{-w^2/(2(2\alpha+1))}\,dw.
+\]
+
+For $\alpha\le1/4$, count visits $Z_N$ to $I$ at times $2M<n\le N$, working conditionally on a fixed prefix. Its mean is bounded below by $c_I N^{1/2-\alpha}$ for sufficiently large $N$, with the cutoff allowed to depend on the prefix. For a pair $m<n$ with $n\ge 2m$, the conditional probability of the second visit given the history through $m$ is $O(n^{-\alpha-1/2})$ by~\eqref{eq:decay}. Summing the corresponding joint probabilities gives $O(N^{1-2\alpha})$. For $m<n<2m$, use~\eqref{eq:block} and sum over $\ell=n-m$. The result is $O(m^{1/2-\alpha}+m^{(1-\alpha)/3})$, splitting the minimum at $\ell=m^{2(1-\alpha)/3}$. The first power dominates at $\alpha\le1/4$, with equality at the endpoint. Multiplication by the first visit probability and summation over $m$ gives $O(N^{1-2\alpha})$, also absorbing the diagonal. These second-moment constants are independent of the prefix.
+
+Paley--Zygmund yields a common positive lower bound for the probability of $Z_N\ge \EE Z_N/2$ in the conditioned law for all sufficiently large $N$. Since $Z_N$ increases and its mean diverges, the conditional probability of infinitely many visits is bounded below by the same constant, for every $M$. Conditional probabilities given the first $M$ signs converge almost surely to the event's indicator by bounded martingale convergence. Thus $I$ is visited infinitely often almost surely. The countable intersection over closed intervals with rational endpoints gives the recurrence assertion.
+
+\section{A first visit and its cluster}
+Fix the target $[-R,R]$ and stop at its first visit in $[N,2N]$, say at $m$ if a visit occurs. For even $\ell\le c_0 N^{2(1-\alpha)/3}$, the next $\ell$ signs are balanced with probability at least $c\ell^{-1/2}$. Under balance their means vanish and pairwise covariances are $-1/(\ell-1)$, since the sum of the signs is zero. Thus with $w_j=(m+j)^\alpha$ and average $\bar w$, the conditional variance of their weighted sum is
+\[
+ \frac{\ell}{\ell-1}\sum_{j=1}^{\ell}(w_j-\bar w)^2
+ =O(N^{2\alpha-2}\ell^3).
+\]
+The bound follows from the weight range $O(N^{\alpha-1}\ell)$. For small fixed $c_0$ the conditional probability that the increment lies in $[-1,1]$ is at least $1/2$ by Chebyshev's inequality. Sum over the even lengths. A first hit thus gives conditional expected visits to $[-R-1,R+1]$ in $[N,3N]$ of order at least $N^{(1-\alpha)/3}$. Independence of the future after $m$ follows by conditioning separately on each possible first-hit time. The unconditional expected count is $O(N^{1/2-\alpha})$ by~\eqref{eq:decay} and majorization. Consequently
+\[
+ \PP(\exists n\in[N,2N]: |X_n|\le R)
+ \le C_R N^{(1-4\alpha)/6}.
+\]
+For $\alpha>1/4$ this is summable along dyadic $N$. Borel--Cantelli followed by intersection over positive integer $R$ proves divergence of $|X_n|$.
+\bibliographystyle{amsplain}
+\bibliography{references}
+\end{document}
